@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { getFirestore, doc, getDoc, setDoc, onSnapshot } from "firebase/firestore";
 
 const config = {
     apiKey: "AIzaSyAoTXUHlRAl_lkGDt4JD1bl9Jhx13msaQ8",
@@ -15,7 +15,56 @@ const config = {
 const firebaseApp = initializeApp(config);
 
 export const auth = getAuth(firebaseApp);
-export const firestore = getFirestore(firebaseApp);
+export const db = getFirestore(firebaseApp);
+export const authSignOut = signOut(auth);
+export const authCreateUserWithEmailAndPassword = async (email, password, displayName ) => {
+    const user = await createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            return userCredential.user;
+        })
+        .catch((error) => {
+            return error.message;
+        });
+    updateProfile(auth.currentUser, {
+        displayName
+    })
+    return user;
+};
+
+export const createUserProfileDocument = async (userAuth, additionalData) => {
+    if (!userAuth) return;
+
+    const userRef = doc(db, 'users', `${userAuth.uid}`);
+    const snapShot = await getDoc(userRef);
+
+    if(!snapShot.exists()) {
+        const { displayName, email } = userAuth;
+        const createdAt = new Date();
+
+        try {
+            await setDoc(userRef, {
+                displayName,
+                email,
+                createdAt,
+                ...additionalData
+            })
+        } catch (error) {
+            console.log('error creating user', error.message);
+        }
+    }
+
+    return userRef;
+};
+
+export function unsubscribe() {
+    onAuthStateChanged(auth, async userAuth => {
+        if (userAuth) {
+            await createUserProfileDocument(userAuth);
+        }
+        this.setState({ currentUser: userAuth });
+    });
+}
+
 
 const provider = new GoogleAuthProvider(auth);
 provider.setCustomParameters({ prompt: 'select_account' });
