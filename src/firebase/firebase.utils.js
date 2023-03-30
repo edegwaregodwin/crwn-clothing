@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword } from "firebase/auth";
 import { getFirestore, doc, getDoc, setDoc, onSnapshot } from "firebase/firestore";
 
 const config = {
@@ -16,7 +16,7 @@ const firebaseApp = initializeApp(config);
 
 export const auth = getAuth(firebaseApp);
 export const db = getFirestore(firebaseApp);
-export const authSignOut = signOut(auth);
+export const authSignOut = () => signOut(auth);
 export const authCreateUserWithEmailAndPassword = async (email, password, displayName ) => {
     const user = await createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
@@ -56,17 +56,18 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
     return userRef;
 };
 
-export function unsubscribe() {
-    onAuthStateChanged(auth, async userAuth => {
-        if (userAuth) {
-            await createUserProfileDocument(userAuth);
-        }
-        this.setState({ currentUser: userAuth });
-    });
+export const authOnAuthStateChanged = (callback) => {
+    onAuthStateChanged(auth, callback);
 }
 
+export const authOnSnapshot = (userRef, callback) => {
+    onSnapshot(userRef, callback);
+}
 
-const provider = new GoogleAuthProvider(auth);
+export const provider = new GoogleAuthProvider(auth);
 provider.setCustomParameters({ prompt: 'select_account' });
 export const signInWithGoogle = () => signInWithPopup(auth, provider);
 
+export const authSignInWithEmailAndPassword = async (email, password) => {
+    await signInWithEmailAndPassword(auth, email, password);
+}
