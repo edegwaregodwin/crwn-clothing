@@ -3,7 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-import './App.css';
+import './App.css'; 
 
 import HomePage from './pages/homepage/homepage.component';
 import ShopPage from './pages/shop/shop.component';
@@ -47,9 +47,9 @@ class App extends React.Component {
       <div>
         <Header />
         <Routes>
-          <Route exact path='/' element={<HomePage />} />
-          <Route path='/shop' element={<ShopPage />} />
-          <Route exact path='/signin' 
+          <Route path='/' element={<HomePage />} />
+          <Route path='/shop/*' element={<ShopPage />} />
+          <Route path='/signin' 
             element={
               this.props.currentUser 
               ? (<Navigate to='/' />)
