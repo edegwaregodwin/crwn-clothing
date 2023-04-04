@@ -28,6 +28,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {\
           "packageLocation": "./",\
           "packageDependencies": [\
+            ["@stripe/react-stripe-js", "virtual:66a38074c01dbe8d4e1c5f31866afe6519c5caf2716b759f13adfda95e4ea400f888a7baebe1f49c1319977e90dfcfa2e68e48add18eea4caaf0cfffe2a2ff07#npm:2.1.0"],\
+            ["@stripe/stripe-js", "npm:1.52.0"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\
             ["@testing-library/react", "virtual:66a38074c01dbe8d4e1c5f31866afe6519c5caf2716b759f13adfda95e4ea400f888a7baebe1f49c1319977e90dfcfa2e68e48add18eea4caaf0cfffe2a2ff07#npm:13.4.0"],\
             ["@testing-library/user-event", "virtual:66a38074c01dbe8d4e1c5f31866afe6519c5caf2716b759f13adfda95e4ea400f888a7baebe1f49c1319977e90dfcfa2e68e48add18eea4caaf0cfffe2a2ff07#npm:13.5.0"],\
@@ -5159,6 +5161,46 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@stripe/react-stripe-js", [\
+        ["npm:2.1.0", {\
+          "packageLocation": "./.yarn/cache/@stripe-react-stripe-js-npm-2.1.0-2f15e96dd7-ae5a26e44b.zip/node_modules/@stripe/react-stripe-js/",\
+          "packageDependencies": [\
+            ["@stripe/react-stripe-js", "npm:2.1.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:66a38074c01dbe8d4e1c5f31866afe6519c5caf2716b759f13adfda95e4ea400f888a7baebe1f49c1319977e90dfcfa2e68e48add18eea4caaf0cfffe2a2ff07#npm:2.1.0", {\
+          "packageLocation": "./.yarn/__virtual__/@stripe-react-stripe-js-virtual-41ec27d068/0/cache/@stripe-react-stripe-js-npm-2.1.0-2f15e96dd7-ae5a26e44b.zip/node_modules/@stripe/react-stripe-js/",\
+          "packageDependencies": [\
+            ["@stripe/react-stripe-js", "virtual:66a38074c01dbe8d4e1c5f31866afe6519c5caf2716b759f13adfda95e4ea400f888a7baebe1f49c1319977e90dfcfa2e68e48add18eea4caaf0cfffe2a2ff07#npm:2.1.0"],\
+            ["@stripe/stripe-js", "npm:1.52.0"],\
+            ["@types/react", null],\
+            ["@types/react-dom", null],\
+            ["@types/stripe__stripe-js", null],\
+            ["prop-types", "npm:15.8.1"],\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:66a38074c01dbe8d4e1c5f31866afe6519c5caf2716b759f13adfda95e4ea400f888a7baebe1f49c1319977e90dfcfa2e68e48add18eea4caaf0cfffe2a2ff07#npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@stripe/stripe-js",\
+            "@types/react-dom",\
+            "@types/react",\
+            "@types/stripe__stripe-js",\
+            "react-dom",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@stripe/stripe-js", [\
+        ["npm:1.52.0", {\
+          "packageLocation": "./.yarn/cache/@stripe-stripe-js-npm-1.52.0-6bfb6fa97c-af6b17ad91.zip/node_modules/@stripe/stripe-js/",\
+          "packageDependencies": [\
+            ["@stripe/stripe-js", "npm:1.52.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@surma/rollup-plugin-off-main-thread", [\
         ["npm:2.2.3", {\
           "packageLocation": "./.yarn/cache/@surma-rollup-plugin-off-main-thread-npm-2.2.3-1f57d3eded-2c02134944.zip/node_modules/@surma/rollup-plugin-off-main-thread/",\
@@ -8128,6 +8170,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",\
           "packageDependencies": [\
             ["crwn-clothing", "workspace:."],\
+            ["@stripe/react-stripe-js", "virtual:66a38074c01dbe8d4e1c5f31866afe6519c5caf2716b759f13adfda95e4ea400f888a7baebe1f49c1319977e90dfcfa2e68e48add18eea4caaf0cfffe2a2ff07#npm:2.1.0"],\
+            ["@stripe/stripe-js", "npm:1.52.0"],\
             ["@testing-library/jest-dom", "npm:5.16.5"],\
             ["@testing-library/react", "virtual:66a38074c01dbe8d4e1c5f31866afe6519c5caf2716b759f13adfda95e4ea400f888a7baebe1f49c1319977e90dfcfa2e68e48add18eea4caaf0cfffe2a2ff07#npm:13.4.0"],\
             ["@testing-library/user-event", "virtual:66a38074c01dbe8d4e1c5f31866afe6519c5caf2716b759f13adfda95e4ea400f888a7baebe1f49c1319977e90dfcfa2e68e48add18eea4caaf0cfffe2a2ff07#npm:13.5.0"],\
