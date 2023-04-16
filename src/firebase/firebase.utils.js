@@ -3,7 +3,7 @@ import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChang
 import { getFirestore, doc, getDoc, setDoc, onSnapshot } from "firebase/firestore";
 
 const config = {
-    apiKey: "AIzaSyAoTXUHlRAl_lkGDt4JD1bl9Jhx13msaQ8",
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
     authDomain: "crwn-db-ffe2a.firebaseapp.com",
     projectId: "crwn-db-ffe2a",
     storageBucket: "crwn-db-ffe2a.appspot.com",
